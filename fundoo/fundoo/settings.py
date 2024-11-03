@@ -103,7 +103,7 @@ CHANNEL_LAYERS = {
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'chatapp'
+        'NAME': 'chatapp',
         'USER': 'aishwarya',
         'PASSWORD': 'Aishdip@2002',
         'HOST': '10.0.0.133',
