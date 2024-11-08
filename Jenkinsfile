@@ -1,6 +1,6 @@
 pipeline {
-    agent any
-
+    agent { label 'slave-node' } // Replace 'slave-node' with the actual label of your slave
+    
     stages {
         stage('Checkout') {
             steps {
@@ -82,3 +82,4 @@ pipeline {
         }
     }
 }
+
