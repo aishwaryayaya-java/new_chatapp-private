@@ -1,5 +1,5 @@
 pipeline {
-    agent { label 'slave-node' } // Replace 'slave-node' with the actual label of your slave
+    agent { label 'slave node' } // Replace 'slave-node' with the actual label of your slave
     
     stages {
         stage('Checkout') {
