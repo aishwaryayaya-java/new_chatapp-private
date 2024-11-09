@@ -2,11 +2,13 @@ pipeline {
     agent { label 'slave node' } // Replace 'slave-node' with the actual label of your slave
     
     stages {
-        stage('Checkout') {
-            steps {
-                git url: 'https://github.com/aishwaryayaya-java/new_chatapp.git'
-            }
-        }
+      stage('Checkout') {
+    steps {
+        git credentialsId: 'github-credentials', url: 'https://github.com/aishwaryayaya-java/new_chatapp-private.git'
+    }
+}
+
+
 
         stage('Sync Files to VM') {
             steps {
