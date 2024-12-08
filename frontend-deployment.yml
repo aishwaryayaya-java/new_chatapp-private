@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend
+  labels:
+    app: chatapp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: chatapp
+      tier: frontend
+  template:
+    metadata:
+      labels:
+        app: chatapp
+        tier: frontend
+    spec:
+      containers:
+      - name: frontend
+        image: mycontainerrregistry.azurecr.io/my-frontend-nginx:latest
+        ports:
+        - containerPort: 80
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "100m"
+          limits:
+            memory: "128Mi"
+            cpu: "250m"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: frontend
+spec:
+  ports:
+  - port: 80
+    targetPort: 80
+  selector:
+    app: chatapp
+    tier: frontend
+  type: ClusterIP
